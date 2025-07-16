@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+.venv/
+*.sqlite3
+users.db
+.DS_Store
+.env
+*.log
+
+# Ignore local uploads if any
+uploads/
+selfies/
+organised_photos/

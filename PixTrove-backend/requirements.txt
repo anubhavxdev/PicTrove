@@ -1,0 +1,10 @@
+# PixTrove Backend Requirements
+Flask
+flask_cors
+pymongo
+boto3
+python-dotenv
+werkzeug
+face_recognition
+face_recognition_models
+Pillow
