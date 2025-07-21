@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import { useSession, signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
