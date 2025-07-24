@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-gray-800 text-gray-400 py-6 flex flex-col md:flex-row justify-between items-center px-8 mt-12">
+    <footer className="w-full bg-black border-t border-gray-800 text-gray-400 py-6 flex flex-col md:flex-row justify-between items-center px-8">
       <div className="mb-2 md:mb-0">
         &copy; {new Date().getFullYear()} PixTrove. All rights reserved.
       </div>

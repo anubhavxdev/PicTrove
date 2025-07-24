@@ -59,11 +59,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="py-4 text-center text-gray-500 text-xs bg-black border-t border-gray-800 mt-8">
-          &copy; {new Date().getFullYear()} PixTrove &bull; <a href="https://github.com/anubhav12302387/Event-Photo-Organizer-with-Face-Recognition" className="text-cyan-400 hover:underline" target="_blank" rel="noopener">GitHub</a>
-        </footer>
       </main>
     </>
   );
