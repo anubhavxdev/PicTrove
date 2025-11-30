@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # 1. MongoDB Service
+  mongo:
+    image: mongo:latest
+    container_name: pixtrove_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # 2. Backend Service
+  backend:
+    build: ./PixTrove-backend
+    container_name: pixtrove_backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      # We override 'localhost' with 'mongo' (the service name above)
+      - MONGO_URI=mongodb://mongo:27017/
+      - MONGO_DB=pixtrove
+      # Pass AWS credentials from your local environment
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+      - S3_BUCKET=${S3_BUCKET}
+    volumes:
+      - ./PixTrove-backend:/app
+
+  # 3. Frontend Service
+  frontend:
+    build: ./PixTrove-frontend
+    container_name: pixtrove_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      -kz backend
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
+
+volumes:
+  mongo_data:
