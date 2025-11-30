@@ -25,6 +25,36 @@ A modern, full-stack event photo management platform that leverages face recogni
 
 ---
 
+## Run with Docker (Recommended)
+
+The easiest way to run PicTrove is using Docker Compose. This handles the database, backend, and frontend configuration for you.
+
+### Prerequisites
+- [Docker](https://www.docker.com/) and Docker Compose installed on your machine.
+
+### Quick Start
+
+1.  **Create a `.env` file** in the root directory with your AWS credentials:
+    ```env
+    AWS_ACCESS_KEY_ID=your_aws_access_key
+    AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+    AWS_DEFAULT_REGION=ap-south-1
+    S3_BUCKET=your_s3_bucket_name
+    ```
+
+2.  **Build and Run:**
+    ```bash
+    docker-compose up --build
+    ```
+    *Note: The first build may take 5-10 minutes as it compiles dependencies for face recognition, But for next time it builds faster due to caching*
+
+3.  **Access the App:**
+    - **Frontend:** http://localhost:3000
+    - **Backend API:** http://localhost:5000
+    - **MongoDB:** Pre-configured and running internally.
+
+---
+
 ## Directory Structure
 
 ```
